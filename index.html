@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD SavePet</title>
+    <style>
+      input[type="submit"],
+      button,
+      [aria-label] {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>SavePet</h1>
+    <hr />
+    <h2>Criar conta</h2>
+    <form action="javascript:void(0)" , method="POST" id="signup-form">
+      <input type="text" id="signup-name" placeholder="Seu Nome" />
+      <input type="text" id="signup-email" placeholder="seu@email.com" />
+      <input type="text" id="signup-telephone" placeholder="61 91234-4321" />
+      <input
+        type="password"
+        id="signup-password"
+        placeholder="Letras, números, símbolos"
+      />
+      <input
+        type="password"
+        id="signup-pass-confirm"
+        placeholder="Confirme a senha"
+      />
+      <input type="submit" value="Criar conta" />
+    </form>
+    <p id="signup-error"></p>
+    <br />
+    <hr />
+    <h2>Contas cadastradas</h2>
+    <p id="accounts-error"></p>
+    <table>
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Telefone</th>
+        <th>Senha</th>
+      </tr>
+      <tbody id="accounts"></tbody>
+    </table>
+    <hr />
+    <h2>Minha conta</h2>
+    <div id="login-container">
+      <h3>Login</h3>
+      <form action="javascript:void(0)" , method="POST" id="login-form">
+        <input type="text" id="login-email" placeholder="seu@email.com" />
+        <input type="password" id="login-password" placeholder="********" />
+        <input type="submit" value="Entrar" />
+      </form>
+      <p id="login-error"></p>
+    </div>
+    <div id="account-container" style="display: none">
+      <h3>Alterar meus dados</h3>
+      <form action="javascript:void(0)" , method="PATCH" id="patch-form">
+        <input type="text" id="patch-name" placeholder="Seu Nome" />
+        <input type="text" id="patch-email" placeholder="seu@email.com" />
+        <input type="text" id="patch-telephone" placeholder="61 91234-4321" />
+        <input type="submit" value="Alterar dados" />
+      </form>
+      <p id="patch-error"></p>
+      <br />
+      <h3>Excluir minha conta</h3>
+      <form action="javascript:void(0)" , method="DELETE" id="delete-form">
+        <input type="password" id="delete-password" placeholder="********" />
+        <input type="submit" value="Excluir" />
+      </form>
+      <p id="delete-error"></p>
+      <br />
+      <h3>Logout</h3>
+      <input type="submit" value="Sair" id="logout-btn" />
+    </div>
+  </body>
+  <script src="/script.js"></script>
+</html>
