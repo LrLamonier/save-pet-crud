@@ -13,8 +13,6 @@ const accounts = [
   },
 ];
 
-// const accounts = [];
-
 // GET listar contas
 const accountsContainer = document.getElementById("accounts");
 const accountsError = document.getElementById("accounts-error");
@@ -254,3 +252,87 @@ const deleteAcc = () => {
   showAccounts();
 };
 deleteForm.addEventListener("submit", deleteAcc);
+
+////////////////////////////////////////////////////
+///////////////////////////////////////////////////
+// Ocorrências
+
+const events = [
+  {
+    type: "Gato",
+    location: "-16.7064707,-49.3463833,14",
+    comment: "Gata com 3 filhotinhos",
+  },
+  {
+    type: "Cachorro",
+    location: "-16.7064707,-49.3463833,14",
+    comment: "",
+  },
+];
+
+const eventsForm = document.getElementById("event-form");
+const eventsContainer = document.getElementById("events");
+const eventsType = document.getElementById("event-type");
+const eventsLocation = document.getElementById("event-location");
+const eventsComment = document.getElementById("event-comment");
+
+// mostrar ocorrências
+const showEvents = () => {
+  let data = "";
+  if (events.length === 0) {
+    eventsError.innerHTML = "Nenhuma conta cadastrada!";
+  } else {
+    events.forEach((el, i) => {
+      data += "<tr>";
+      data += `<td>${el.type}</td>`;
+      data += `<td>| ${el.location}</td>`;
+      data += `<td>| ${el.comment}</td>`;
+      data += "</tr>";
+      data += "<br />";
+    });
+  }
+  eventsContainer.innerHTML = data;
+};
+showEvents();
+
+// POST criar conta
+const eventForm = document.getElementById("signup-form");
+const eventType = document.getElementById("event-type");
+const eventLocation = document.getElementById("event-location");
+const eventComment = document.getElementById("event-comment");
+const eventError = document.getElementById("events-input-error");
+
+const addEvent = () => {
+  eventError.innerText = "";
+
+  // validar formulário
+  let error = "";
+
+  // validar tipo
+  if (eventType.value === "") {
+    error += "Selecione um tipo.";
+    eventType.value = "";
+  }
+
+  // validar localização
+  if (!eventLocation.value) {
+    error += " Localização inválida.";
+    signupEmail.value = "";
+  }
+
+  // exibir erro
+  if (error.length > 0) {
+    return (eventError.innerText = error);
+  }
+
+  // criar conta
+  events.push({
+    type: eventType.value,
+    location: eventLocation.value,
+    comment: eventComment.value,
+  });
+
+  // exibir os novos valores
+  showEvents();
+};
+eventsForm.addEventListener("submit", addEvent);

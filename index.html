@@ -78,6 +78,36 @@
       <h3>Logout</h3>
       <input type="submit" value="Sair" id="logout-btn" />
     </div>
+    <br /><br /><br />
+    <hr />
+    <h1>Ocorrências</h1>
+    <hr />
+    <h2>Registrar ocorrências</h2>
+    <p>O usuário deverá estar logado para registrar uma ocorrência.</p>
+    <form action="javascript:void(0)" , method="DELETE" id="event-form">
+      <select name="event-type" id="event-type">
+        <option value="">Selecione o tipo de animal</option>
+        <option value="Cachorro">Cachorro</option>
+        <option value="Gato">Gato</option>
+        <option value="Outro">Outro</option>
+      </select>
+      <input type="text" id="event-location" placeholder="Localização" />
+      <input type="text" id="event-comment" placeholder="Comentário" />
+      <input type="submit" value="Adicionar ocorrência" />
+    </form>
+    <p id="events-input-error"></p>
+    <br />
+    <hr />
+    <h2>Ocorrências</h2>
+    <table>
+      <tr>
+        <th>Tipo de animal</th>
+        <th>Localização</th>
+        <th>Comentário</th>
+      </tr>
+      <tbody id="events"></tbody>
+    </table>
+    <p id="events-error"></p>
   </body>
   <script src="/script.js"></script>
 </html>
